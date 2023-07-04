@@ -22,8 +22,6 @@ namespace ExaminationSystem.question
             Console.WriteLine($"Header: {Header}");
             Console.WriteLine($"Body: {Body}");
 
-            //Console.WriteLine("Choices (Choose One): ");
-
             for (int i = 0; i < Choices.Count; i++)
             {
                 Console.WriteLine($"{i+1}. {Choices[i]}");

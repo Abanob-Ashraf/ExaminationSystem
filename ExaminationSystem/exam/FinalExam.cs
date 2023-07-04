@@ -18,7 +18,7 @@ namespace ExaminationSystem.exam
 
         public override void ShowExam()
         {
-            Console.WriteLine($"Number of Questions: {Questions.ReadQuestions().Count}");
+            Console.WriteLine($"Number of Questions: {NumberOfQuestions}");
             foreach (var question in Questions.ReadQuestions())
             {
                 question.Display();
