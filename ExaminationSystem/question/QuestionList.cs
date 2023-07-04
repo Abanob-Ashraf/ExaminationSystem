@@ -52,11 +52,11 @@ namespace ExaminationSystem.question
                     sw.WriteLine($"AnswerIndex: {coq.AnswerIndex}");
                 }
 
-                //else if (question is ChooseAllQuestion caq)
-                //{
-                //    sw.WriteLine($"Choices: {string.Join(", ", caq.Choices)}");
-                //    sw.WriteLine($"AnswerIndexes: {string.Join(", ", caq.AnswerIndexes)}");
-                //}
+                else if (question is ChooseAllQuestion caq)
+                {
+                    sw.WriteLine($"Choices: {string.Join(", ", caq.Choices)}");
+                    sw.WriteLine($"AnswerIndexes: {string.Join(", ", caq.AnswerIndexes)}");
+                }
                 sw.WriteLine("____________________________________________________");
             }
         }
@@ -89,13 +89,13 @@ namespace ExaminationSystem.question
                             Question chooseOneQuestion = new ChooseOneQuestion(header, body, marks, Choices, answerIndex);
                             questionList.Add(chooseOneQuestion);
                         }
-                        //else if (header == "ChooseAllQuestion")
-                        //{
-                        //    List<string> Choices = reader.ReadLine().Substring("Choices: ".Length).Split(',').ToList();
-                        //    List<int> answerIndexes = reader.ReadLine().Substring("AnswerIndexes: ".Length).Split(',').Select(int.Parse).ToList();
-                        //    Question chooseAllQuestion = new ChooseAllQuestion(header, body, marks, Choices, answerIndexes);
-                        //    questionList.Add(chooseAllQuestion);
-                        //}
+                        else if (header == "ChooseAllQuestion")
+                        {
+                            List<string> Choices = reader.ReadLine().Substring("Choices: ".Length).Split(',').ToList();
+                            List<int> answerIndexes = reader.ReadLine().Substring("AnswerIndexes: ".Length).Split(',').Select(int.Parse).ToList();
+                            Question chooseAllQuestion = new ChooseAllQuestion(header, body, marks, Choices, answerIndexes);
+                            questionList.Add(chooseAllQuestion);
+                        }
                     }
                 }
                 reader.Close();

@@ -35,7 +35,7 @@ namespace ExaminationSystem.question
             {
                 Console.Write("Your choice: or type ok to skip ");
                 input = Console.ReadLine();
-                if ((int.TryParse(input, out studentAnswer)) && (studentAnswer <= Choices.Count))
+                if ((int.TryParse(input, out studentAnswer)) && (studentAnswer <= Choices.Count && studentAnswer != 0))
                 {
                     break;
                 }
