@@ -40,6 +40,8 @@ namespace ExaminationSystem.question
                     break;
                 }
             } while (input.ToLower() != "ok");
+
+            Console.WriteLine("_______________________________________________________________________________________________");
         }
 
         public override void CorrectAnswer()
@@ -53,6 +55,7 @@ namespace ExaminationSystem.question
                 }
             };
             Console.WriteLine(trueChoice);
+            Console.WriteLine("_______________________________________________________________________________________________");
         }
     }
 }

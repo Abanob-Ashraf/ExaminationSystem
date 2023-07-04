@@ -32,11 +32,13 @@ namespace ExaminationSystem.question
                     break;
                 }
             } while (input.ToLower() != "ok");
+            Console.WriteLine("_______________________________________________________________________________________________");
         }
 
         public override void CorrectAnswer()
         {
-            Console.WriteLine(TrueOrFalse.ToString()); 
+            Console.WriteLine(TrueOrFalse.ToString());
+            Console.WriteLine("_______________________________________________________________________________________________");
         }
 
     }

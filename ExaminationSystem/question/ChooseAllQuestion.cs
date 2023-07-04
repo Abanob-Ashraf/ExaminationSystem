@@ -59,6 +59,7 @@ namespace ExaminationSystem.question
             {
                 Console.WriteLine("test"+ x[j]);
             }
+            Console.WriteLine("_______________________________________________________________________________________________");
         }
 
         public override void CorrectAnswer()
@@ -68,9 +69,9 @@ namespace ExaminationSystem.question
                 if (AnswerIndexes.Contains(i))
                 {
                     Console.WriteLine(Choices[i]);
-
                 }
             }
+            Console.WriteLine("_______________________________________________________________________________________________");
         }
     }
 }
