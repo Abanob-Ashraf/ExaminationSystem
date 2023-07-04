@@ -22,17 +22,10 @@ namespace ExaminationSystem.subject
         {
             Subject subject = new Subject();
             int studentAnswer;
-            string input;
             do
             {
-                Console.WriteLine("choose your Subject exam 1 for FrontEnd and 2 for BackEnd or OK to exit");
-
-                input = Console.ReadLine();
-                if ((int.TryParse(input, out studentAnswer)) && (studentAnswer == 1 || studentAnswer == 2))
-                {
-                    break;
-                }
-            } while (input.ToLower() != "ok");
+                Console.WriteLine("choose your Subject exam 1 for FrontEnd and 2 for BackEnd");
+            } while (!((int.TryParse(Console.ReadLine(), out studentAnswer)) && (studentAnswer == 1 || studentAnswer == 2))) ;
 
             if (studentAnswer == 1)
             {
@@ -51,17 +44,10 @@ namespace ExaminationSystem.subject
             QuestionList questions = new QuestionList($"{SubjectName}.log");
 
             int studentAnswer;
-            string input;
             do
             {
-                Console.WriteLine("choose your type of exam 1 for Practice and 2 for Final or OK to exit");
-
-                input = Console.ReadLine();
-                if ((int.TryParse(input, out studentAnswer)) && (studentAnswer == 1 || studentAnswer == 2))
-                {
-                    break;
-                }
-            } while (input.ToLower() != "ok");
+                Console.WriteLine("choose your type of exam 1 for Practice and 2 for Final");
+            } while (!((int.TryParse(Console.ReadLine(), out studentAnswer)) && (studentAnswer == 1 || studentAnswer == 2)));
 
             if (studentAnswer == 1)
             {
