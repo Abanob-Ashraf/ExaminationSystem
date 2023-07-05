@@ -29,7 +29,7 @@ namespace ExaminationSystem.question
 
             Console.WriteLine($"mark: {Mark}");
 
-            List<int> userAnwers = new List<int>();
+            List<int> studentAnswerList = new List<int>();
 
             for (int i = 0; i < Choices.Count; i++)
             {
@@ -46,21 +46,21 @@ namespace ExaminationSystem.question
                     }
                 } while (!((int.TryParse(input, out studentAnswer)) && (studentAnswer <= Choices.Count && studentAnswer != 0)));
 
-                if (!userAnwers.Contains(studentAnswer) && studentAnswer != 0)
-                {
-                    userAnwers.Add(studentAnswer);
-                }else { i--; }
-
                 if (input.ToLower() == "ok")
                 {
                     break;
                 }
+                else if (!studentAnswerList.Contains(studentAnswer) && studentAnswer != 0)
+                {
+                    studentAnswerList.Add(studentAnswer);
+                }
+                else { i--; }
             }
-            for (int j = 0; j < userAnwers.Count; j++)
-            {
-                Console.WriteLine("you choosed: "+ userAnwers[j]);
-            }
-            Console.WriteLine("_______________________________________________________________________________________________");
+            //for (int j = 0; j < studentAnswerList.Count; j++)
+            //{
+            //    Console.WriteLine("you choosed: "+ studentAnswerList[j]);
+            //}
+            //Console.WriteLine("_______________________________________________________________________________________________");
         }
 
         public override void CorrectAnswer()
