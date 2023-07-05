@@ -9,11 +9,9 @@ namespace ExaminationSystem.exam
 {
     public class FinalExam : Exam
     {
-        public QuestionList Questions { get; set; }
-
-        public FinalExam(QuestionList _questions) : base(_questions)
+        public FinalExam(QuestionList questions) : base(questions)
         {
-            Questions = _questions;
+            Questions = questions;
         }
 
         public override void ShowExam()

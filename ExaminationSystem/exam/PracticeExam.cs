@@ -9,17 +9,15 @@ namespace ExaminationSystem.exam
 {
     public class PracticeExam : Exam
     {
-        public QuestionList Questions { get; set; }
-
-        public PracticeExam(QuestionList _questions) : base(_questions)
+        public PracticeExam(QuestionList questions) : base(questions)
         {
-            Questions = _questions;
+            Questions = questions;
         }
 
         public override void ShowExam()
         {
-
             Console.WriteLine($"Number of Questions: {NumberOfQuestions}");
+
             foreach (var question in Questions.ReadQuestions())
             {
                 question.Display();

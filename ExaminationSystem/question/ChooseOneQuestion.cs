@@ -11,10 +11,10 @@ namespace ExaminationSystem.question
         public List<string> Choices { get; set; }
         public int AnswerIndex { get; set; }
 
-        public ChooseOneQuestion(string _header, string _body, int _mark, List<string> _choices, int _answerIndex) : base(_header, _body, _mark)
+        public ChooseOneQuestion(string header, string body, int mark, List<string> choices, int answerIndex) : base(header, body, mark)
         {
-            Choices = _choices;
-            AnswerIndex = _answerIndex;
+            Choices = choices;
+            AnswerIndex = answerIndex;
         }
 
         public override void Display()

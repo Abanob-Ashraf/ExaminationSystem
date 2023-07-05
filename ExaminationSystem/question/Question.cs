@@ -13,11 +13,11 @@ namespace ExaminationSystem.question
         public string Body { get; set; }
         public int Mark { get; set; }
 
-        public Question(string _header, string _body, int _mark) 
+        public Question(string header, string body, int mark) 
         {
-            Header = _header;
-            Body = _body;
-            Mark = _mark;
+            Header = header;
+            Body = body;
+            Mark = mark;
         }
         public abstract void Display();
         public abstract void CorrectAnswer();

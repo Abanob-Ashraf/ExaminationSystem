@@ -10,9 +10,9 @@ namespace ExaminationSystem.question
     {
         public bool TrueOrFalse { get; set; }
 
-        public TrueFalseQuestion(string _header, string _body, int _mark, bool _trueOrFalse) : base(_header, _body, _mark)
+        public TrueFalseQuestion(string header, string body, int mark, bool trueOrFalse) : base(header, body, mark)
         {
-            TrueOrFalse = _trueOrFalse;
+            TrueOrFalse = trueOrFalse;
         }
 
         public override void Display()

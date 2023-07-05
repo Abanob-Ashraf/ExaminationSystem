@@ -9,8 +9,7 @@ namespace ExaminationSystem
     {
         static void Main(string[] args)
         {
-            Subject subject = new Subject();
-            subject.takeExam();
+            Subject.TakeExam();
 
             //QuestionList questions = new QuestionList("frontEnd.log");
 

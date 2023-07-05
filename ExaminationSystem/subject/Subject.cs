@@ -13,12 +13,12 @@ namespace ExaminationSystem.subject
         public string SubjectName { get; set; }
         public Exam Exam { get; set; }
         public Subject() { }
-        public Subject(string _subjectName) 
+        public Subject(string subjectName) 
         {
-            SubjectName = _subjectName;
+            SubjectName = subjectName;
         }
 
-        public void takeExam() 
+        public static void TakeExam() 
         {
             Subject subject = new Subject();
             int studentAnswer;

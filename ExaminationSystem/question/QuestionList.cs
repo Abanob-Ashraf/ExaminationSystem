@@ -12,16 +12,16 @@ namespace ExaminationSystem.question
         private string FilePath { get; set; }
         public bool FileLocated { get; set; }
 
-        public QuestionList(bool _fileLocated)
+        public QuestionList(bool fileLocated)
         {
             
-            FileLocated = _fileLocated;
+            FileLocated = fileLocated;
         }
 
-        public QuestionList(string _filePath, bool _fileLocated = true)
+        public QuestionList(string filePath, bool fileLocated = true)
         {
-            FileLocated = _fileLocated;
-            FilePath = _filePath;
+            FileLocated = fileLocated;
+            FilePath = filePath;
         }
 
         public new void Add(Question question)
@@ -84,15 +84,15 @@ namespace ExaminationSystem.question
                         }
                         else if (header == "ChooseOneQuestion")
                         {
-                            List<string> Choices = reader.ReadLine().Substring("Choices: ".Length).Split(',').ToList();
+                            List<string> Choices = reader.ReadLine().Substring("Choices: ".Length).Split(", ").ToList();
                             int answerIndex = int.Parse(reader.ReadLine().Substring("AnswerIndex: ".Length));
                             Question chooseOneQuestion = new ChooseOneQuestion(header, body, marks, Choices, answerIndex);
                             questionList.Add(chooseOneQuestion);
                         }
                         else if (header == "ChooseAllQuestion")
                         {
-                            List<string> Choices = reader.ReadLine().Substring("Choices: ".Length).Split(',').ToList();
-                            List<int> answerIndexes = reader.ReadLine().Substring("AnswerIndexes: ".Length).Split(',').Select(int.Parse).ToList();
+                            List<string> Choices = reader.ReadLine().Substring("Choices: ".Length).Split(", ").ToList();
+                            List<int> answerIndexes = reader.ReadLine().Substring("AnswerIndexes: ".Length).Split(", ").Select(int.Parse).ToList();
                             Question chooseAllQuestion = new ChooseAllQuestion(header, body, marks, Choices, answerIndexes);
                             questionList.Add(chooseAllQuestion);
                         }

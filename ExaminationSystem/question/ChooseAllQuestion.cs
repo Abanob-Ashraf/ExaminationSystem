@@ -11,10 +11,10 @@ namespace ExaminationSystem.question
         public List<string> Choices { get; set; }
         public List<int> AnswerIndexes { get; set; }
 
-        public ChooseAllQuestion(string _header, string _body, int _mark, List<string> _choices, List<int> _answerIndexes) : base(_header, _body, _mark)
+        public ChooseAllQuestion(string header, string body, int mark, List<string> choices, List<int> answerIndexes) : base(header, body, mark)
         {
-            Choices = _choices;
-            AnswerIndexes = _answerIndexes;
+            Choices = choices;
+            AnswerIndexes = answerIndexes;
         }
 
         public override void Display()
@@ -28,7 +28,8 @@ namespace ExaminationSystem.question
             };
 
             Console.WriteLine($"mark: {Mark}");
-            List<int> x = new List<int>();
+
+            List<int> userAnwers = new List<int>();
 
             for (int i = 0; i < Choices.Count; i++)
             {
@@ -45,9 +46,9 @@ namespace ExaminationSystem.question
                     }
                 } while (!((int.TryParse(input, out studentAnswer)) && (studentAnswer <= Choices.Count && studentAnswer != 0)));
 
-                if (!x.Contains(studentAnswer) && studentAnswer != 0)
+                if (!userAnwers.Contains(studentAnswer) && studentAnswer != 0)
                 {
-                    x.Add(studentAnswer);
+                    userAnwers.Add(studentAnswer);
                 }else { i--; }
 
                 if (input.ToLower() == "ok")
@@ -55,9 +56,9 @@ namespace ExaminationSystem.question
                     break;
                 }
             }
-            for (int j = 0; j < x.Count; j++)
+            for (int j = 0; j < userAnwers.Count; j++)
             {
-                Console.WriteLine("test"+ x[j]);
+                Console.WriteLine("your choosed: "+ userAnwers[j]);
             }
             Console.WriteLine("_______________________________________________________________________________________________");
         }
