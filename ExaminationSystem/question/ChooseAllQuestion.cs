@@ -58,7 +58,7 @@ namespace ExaminationSystem.question
             }
             for (int j = 0; j < userAnwers.Count; j++)
             {
-                Console.WriteLine("your choosed: "+ userAnwers[j]);
+                Console.WriteLine("you choosed: "+ userAnwers[j]);
             }
             Console.WriteLine("_______________________________________________________________________________________________");
         }
@@ -69,7 +69,7 @@ namespace ExaminationSystem.question
             {
                 if (AnswerIndexes.Contains(i))
                 {
-                    Console.WriteLine(Choices[i]);
+                    Console.WriteLine($"{i + 1}. {Choices[i]}");
                 }
             }
             Console.WriteLine("_______________________________________________________________________________________________");

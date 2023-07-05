@@ -47,14 +47,16 @@ namespace ExaminationSystem.question
         public override void CorrectAnswer()
         {
             string trueChoice = "";
+            int x= 0;
             for (int i = 0; i < Choices.Count; i++)
             {
                 if (AnswerIndex == i)
                 {
                     trueChoice =  Choices[i];
+                    x = i;
                 }
             };
-            Console.WriteLine(trueChoice);
+            Console.WriteLine($"{x + 1}. {trueChoice}");
             Console.WriteLine("_______________________________________________________________________________________________");
         }
     }
