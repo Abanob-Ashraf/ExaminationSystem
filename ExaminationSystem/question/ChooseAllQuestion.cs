@@ -60,7 +60,7 @@ namespace ExaminationSystem.question
             //{
             //    Console.WriteLine("you choosed: "+ studentAnswerList[j]);
             //}
-            //Console.WriteLine("_______________________________________________________________________________________________");
+            Console.WriteLine("_______________________________________________________________________________________________");
         }
 
         public override void CorrectAnswer()
