@@ -25,6 +25,7 @@ namespace ExaminationSystem.subject
             do
             {
                 Console.WriteLine("choose your Subject exam 1 for FrontEnd and 2 for BackEnd");
+                Console.WriteLine("if You want to exit press 'ctrl + c'");
             } while (!((int.TryParse(Console.ReadLine(), out studentAnswer)) && (studentAnswer == 1 || studentAnswer == 2))) ;
 
             if (studentAnswer == 1)
@@ -35,6 +36,7 @@ namespace ExaminationSystem.subject
             {
                 subject = new Subject("backEnd");
             }
+
             subject.CreateExam();
             subject.Exam.ShowExam();
 
@@ -47,6 +49,7 @@ namespace ExaminationSystem.subject
             do
             {
                 Console.WriteLine("choose your type of exam 1 for Practice and 2 for Final");
+                Console.WriteLine("if You want to exit press 'ctrl + c'");
             } while (!((int.TryParse(Console.ReadLine(), out studentAnswer)) && (studentAnswer == 1 || studentAnswer == 2)));
 
             if (studentAnswer == 1)
