@@ -8,9 +8,6 @@ namespace ExaminationSystem.question
 {
     public class ChooseAllQuestion : Question
     {
-        public List<string> Choices { get; set; }
-        public List<int> AnswerIndexes { get; set; }
-
         public ChooseAllQuestion(string header, string body, int mark, List<string> choices, List<int> answerIndexes) : base(header, body, mark)
         {
             Choices = choices;
@@ -63,16 +60,17 @@ namespace ExaminationSystem.question
             Console.WriteLine("_______________________________________________________________________________________________");
         }
 
-        public override void CorrectAnswer()
+        public override List<int> CorrectAnswer()
         {
+            List<int> answer = new List<int>();
             for (int i = 0; i < Choices.Count; i++)
             {
                 if (AnswerIndexes.Contains(i))
                 {
-                    Console.WriteLine($"{i + 1}. {Choices[i]}");
+                    answer.Add(i);
                 }
             }
-            Console.WriteLine("_______________________________________________________________________________________________");
+            return answer;
         }
     }
 }

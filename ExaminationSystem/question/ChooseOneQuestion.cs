@@ -8,13 +8,10 @@ namespace ExaminationSystem.question
 {
     public class ChooseOneQuestion : Question
     {
-        public List<string> Choices { get; set; }
-        public int AnswerIndex { get; set; }
-
-        public ChooseOneQuestion(string header, string body, int mark, List<string> choices, int answerIndex) : base(header, body, mark)
+        public ChooseOneQuestion(string header, string body, int mark, List<string> choices, List<int> answerIndexes) : base(header, body, mark)
         {
             Choices = choices;
-            AnswerIndex = answerIndex;
+            AnswerIndexes = answerIndexes;
         }
 
         public override void Display()
@@ -44,20 +41,17 @@ namespace ExaminationSystem.question
             Console.WriteLine("_______________________________________________________________________________________________");
         }
 
-        public override void CorrectAnswer()
+        public override List<int> CorrectAnswer()
         {
-            string trueChoice = "";
-            int x= 0;
+            List<int> answer = new List<int>();
             for (int i = 0; i < Choices.Count; i++)
             {
-                if (AnswerIndex == i)
+                if (AnswerIndexes.Contains(i))
                 {
-                    trueChoice =  Choices[i];
-                    x = i;
+                    answer.Add(i);
                 }
-            };
-            Console.WriteLine($"{x + 1}. {trueChoice}");
-            Console.WriteLine("_______________________________________________________________________________________________");
+            }
+            return answer;
         }
     }
 }

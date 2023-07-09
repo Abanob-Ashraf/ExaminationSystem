@@ -12,6 +12,8 @@ namespace ExaminationSystem.question
         public string Header { get; set; }
         public string Body { get; set; }
         public int Mark { get; set; }
+        public List<string> Choices { get; set; }
+        public List<int> AnswerIndexes { get; set; }
 
         public Question(string header, string body, int mark) 
         {
@@ -20,6 +22,6 @@ namespace ExaminationSystem.question
             Mark = mark;
         }
         public abstract void Display();
-        public abstract void CorrectAnswer();
+        public abstract List<int> CorrectAnswer();
     }
 }

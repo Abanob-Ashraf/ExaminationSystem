@@ -23,12 +23,21 @@ namespace ExaminationSystem.exam
                 question.Display();
             }
 
+            Console.WriteLine("Model Answer");
+            Console.WriteLine("______________");
             foreach (var question in Questions.ReadQuestions())
             {
                 Console.WriteLine(question.Header);
                 Console.WriteLine(question.Body);
-                question.CorrectAnswer();
+                foreach (var correctAnswer in question.CorrectAnswer())
+                {
+                    Console.WriteLine($"{correctAnswer + 1}. {question.Choices[correctAnswer]}");
+                }
+                ModelAnswers.Add(question.AnswerIndexes.ToList());
+                Console.WriteLine("___________________________________________");
+
             }
+            Console.WriteLine(ModelAnswers.Count);
         }
     }
 }

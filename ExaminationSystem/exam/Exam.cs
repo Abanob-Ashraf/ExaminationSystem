@@ -16,6 +16,8 @@ namespace ExaminationSystem.exam
 
         //public Dictionary<Question, Answer> QuestionAnswerDictionary { get; set; }
 
+        public List<List<int>> ModelAnswers { get; set; } = new List<List<int>>();
+
         public QuestionList Questions { get; set; }
 
         public Exam(QuestionList questions)

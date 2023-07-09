@@ -43,13 +43,14 @@ namespace ExaminationSystem.question
 
                 if (question is TrueFalseQuestion tfq)
                 {
-                    sw.WriteLine($"TrueOrFalse: {tfq.TrueOrFalse}");
+                    sw.WriteLine($"Choices: {string.Join(", ", tfq.Choices)}");
+                    sw.WriteLine($"AnswerIndexes: {string.Join(", ", tfq.AnswerIndexes)}");
                 }
 
                 else if (question is ChooseOneQuestion coq)
                 {
                     sw.WriteLine($"Choices: {string.Join(", ", coq.Choices)}");
-                    sw.WriteLine($"AnswerIndex: {coq.AnswerIndex}");
+                    sw.WriteLine($"AnswerIndexes: {string.Join(", ", coq.AnswerIndexes)}");
                 }
 
                 else if (question is ChooseAllQuestion caq)
@@ -78,15 +79,16 @@ namespace ExaminationSystem.question
 
                         if (header == "TrueFalseQuestion")
                         {
-                            bool answer = bool.Parse(reader.ReadLine().Substring("TrueOrFalse: ".Length));
-                            Question trueFalseQuestion = new TrueFalseQuestion(header, body, marks, answer);
+                            List<string> Choices = reader.ReadLine().Substring("Choices: ".Length).Split(", ").ToList();
+                            List<int> answerIndexes = reader.ReadLine().Substring("AnswerIndexes: ".Length).Split(", ").Select(int.Parse).ToList();
+                            Question trueFalseQuestion = new TrueFalseQuestion(header, body, marks, answerIndexes);
                             questionList.Add(trueFalseQuestion);
                         }
                         else if (header == "ChooseOneQuestion")
                         {
                             List<string> Choices = reader.ReadLine().Substring("Choices: ".Length).Split(", ").ToList();
-                            int answerIndex = int.Parse(reader.ReadLine().Substring("AnswerIndex: ".Length));
-                            Question chooseOneQuestion = new ChooseOneQuestion(header, body, marks, Choices, answerIndex);
+                            List<int> answerIndexes = reader.ReadLine().Substring("AnswerIndexes: ".Length).Split(", ").Select(int.Parse).ToList();
+                            Question chooseOneQuestion = new ChooseOneQuestion(header, body, marks, Choices, answerIndexes);
                             questionList.Add(chooseOneQuestion);
                         }
                         else if (header == "ChooseAllQuestion")

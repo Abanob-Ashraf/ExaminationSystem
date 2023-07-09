@@ -8,17 +8,22 @@ namespace ExaminationSystem.question
 {
     public class TrueFalseQuestion : Question
     {
-        public bool TrueOrFalse { get; set; }
-
-        public TrueFalseQuestion(string header, string body, int mark, bool trueOrFalse) : base(header, body, mark)
+        public TrueFalseQuestion(string header, string body, int mark, List<int> answerIndexes) : base(header, body, mark)
         {
-            TrueOrFalse = trueOrFalse;
+            Choices = new List<string> { "True", "False" };
+            AnswerIndexes = answerIndexes;
         }
 
         public override void Display()
         {
             Console.WriteLine($"Header: {Header}");
             Console.WriteLine($"Body: {Body}");
+
+            for (int i = 0; i < Choices.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {Choices[i]}");
+            };
+
             Console.WriteLine($"mark: {Mark}");
 
             int studentAnswer;
@@ -35,10 +40,17 @@ namespace ExaminationSystem.question
             Console.WriteLine("_______________________________________________________________________________________________");
         }
 
-        public override void CorrectAnswer()
+        public override List<int> CorrectAnswer()
         {
-            Console.WriteLine(TrueOrFalse.ToString());
-            Console.WriteLine("_______________________________________________________________________________________________");
+            List<int> answer = new List<int>();
+            for (int i = 0; i < Choices.Count; i++)
+            {
+                if (AnswerIndexes.Contains(i))
+                {
+                    answer.Add(i);
+                }
+            }
+            return answer;
         }
 
     }
