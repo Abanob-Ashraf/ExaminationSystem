@@ -13,8 +13,7 @@ namespace ExaminationSystem.question
             Choices = choices;
             AnswerIndexes = answerIndexes;
         }
-
-        public override void Display()
+        public override List<int> Display()
         {
             Console.WriteLine($"Header: {Header}");
             Console.WriteLine($"Body: {Body}");
@@ -47,17 +46,15 @@ namespace ExaminationSystem.question
                 {
                     break;
                 }
-                else if (!studentAnswerList.Contains(studentAnswer) && studentAnswer != 0)
+                else if (!studentAnswerList.Contains(studentAnswer - 1) && studentAnswer != 0)
                 {
-                    studentAnswerList.Add(studentAnswer);
+                    studentAnswerList.Add(studentAnswer - 1);
                 }
                 else { i--; }
             }
-            //for (int j = 0; j < studentAnswerList.Count; j++)
-            //{
-            //    Console.WriteLine("you choosed: "+ studentAnswerList[j]);
-            //}
             Console.WriteLine("_______________________________________________________________________________________________");
+
+            return studentAnswerList;
         }
 
         public override List<int> CorrectAnswer()

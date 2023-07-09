@@ -20,7 +20,8 @@ namespace ExaminationSystem.exam
 
             foreach (var question in Questions.ReadQuestions())
             {
-                question.Display();
+                List<int> studentAnswer = question.Display();
+                UserAnswers.Add(studentAnswer);
             }
 
             Console.WriteLine("Model Answer");
@@ -37,7 +38,7 @@ namespace ExaminationSystem.exam
                 Console.WriteLine("___________________________________________");
 
             }
-            Console.WriteLine(ModelAnswers.Count);
+            CloseExam();
         }
     }
 }

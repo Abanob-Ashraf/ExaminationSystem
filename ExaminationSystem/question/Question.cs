@@ -14,14 +14,13 @@ namespace ExaminationSystem.question
         public int Mark { get; set; }
         public List<string> Choices { get; set; }
         public List<int> AnswerIndexes { get; set; }
-
-        public Question(string header, string body, int mark) 
+        public Question(string header, string body, int mark)
         {
             Header = header;
             Body = body;
             Mark = mark;
         }
-        public abstract void Display();
+        public abstract List<int> Display();
         public abstract List<int> CorrectAnswer();
     }
 }

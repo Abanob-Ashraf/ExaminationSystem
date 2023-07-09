@@ -13,8 +13,7 @@ namespace ExaminationSystem.question
             Choices = new List<string> { "True", "False" };
             AnswerIndexes = answerIndexes;
         }
-
-        public override void Display()
+        public override List<int> Display()
         {
             Console.WriteLine($"Header: {Header}");
             Console.WriteLine($"Body: {Body}");
@@ -26,6 +25,7 @@ namespace ExaminationSystem.question
 
             Console.WriteLine($"mark: {Mark}");
 
+            List<int> studentAnswerList = new List<int>();
             int studentAnswer;
             string input;
             do
@@ -37,7 +37,9 @@ namespace ExaminationSystem.question
                     break;
                 }
             } while (input.ToLower() != "ok");
+            studentAnswerList.Add(studentAnswer - 1);
             Console.WriteLine("_______________________________________________________________________________________________");
+            return studentAnswerList;
         }
 
         public override List<int> CorrectAnswer()
@@ -52,6 +54,5 @@ namespace ExaminationSystem.question
             }
             return answer;
         }
-
     }
 }
