@@ -40,13 +40,8 @@ namespace ExaminationSystem.question
             } while (input.ToLower() != "ok");
 
             studentAnswerList.Add(studentAnswer - 1);
-
             Console.WriteLine("_______________________________________________________________________________________________");
-
             return studentAnswerList;
-
-            //UserAnswers.Add(studentAnswerList.ToList());
-
         }
 
         public override List<int> CorrectAnswer()
