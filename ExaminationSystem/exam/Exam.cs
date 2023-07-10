@@ -10,12 +10,7 @@ namespace ExaminationSystem.exam
 {
     public abstract class Exam
     {
-        //public int Time { get; set; }
-
         public int NumberOfQuestions { get; set; }
-
-        //public Dictionary<Question, Answer> QuestionAnswerDictionary { get; set; }
-
         public List<List<int>> ModelAnswers { get; set; } = new List<List<int>>();
         public List<List<int>> UserAnswers { get; set; } = new List<List<int>>();
         public QuestionList Questions { get; set; }
@@ -30,7 +25,6 @@ namespace ExaminationSystem.exam
         public void CloseExam()
         {
             int userMarks = 0;
-            //Console.WriteLine(Questions.ReadQuestions().Count);
             for (int i = 0; i < Questions.ReadQuestions().Count; i++)
             {
                 if (UserAnswers[i].Count > 1)
