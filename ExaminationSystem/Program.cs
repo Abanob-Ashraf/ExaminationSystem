@@ -12,7 +12,6 @@ namespace ExaminationSystem
             Subject.TakeExam();
 
             //QuestionList questions = new QuestionList("frontEnd.log");
-
             //questions.Add(new TrueFalseQuestion("TrueFalseQuestion", "Are HTML and CSS programming Language?", 2, 1));
             //questions.Add(new ChooseOneQuestion("ChooseOneQuestion", "Which tag is used to define the main Heading of HTML?", 5, new List<string> { "h1", "head", "title" }, 1));
             //questions.Add(new ChooseAllQuestion("ChooseAllQuestion", "Which tag is used to define the main Heading of HTML?", 5, new List<string> { "h1", "head", "title" },  new List<int> { 0, 3 }));
